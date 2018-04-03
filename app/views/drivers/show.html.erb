@@ -1,2 +1,12 @@
-<h1>Driver#show</h1>
-<p>Find me in app/views/driver/show.html.erb</p>
+<h2>Driver: <%= @driver.name %></h2>
+<h4>VIN: <%= @driver.vin %></h4>
+
+<ul>
+  <li>
+    <%= link_to "Edit", edit_driver_path %>
+  </li>
+  <li>
+    <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
+    <%= link_to "Delete", driver_path(@driver.id), method: :delete %>
+  </li>
+</ul>
