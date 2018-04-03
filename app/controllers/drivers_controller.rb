@@ -36,7 +36,10 @@ class DriversController < ApplicationController
 
   def show
     id = params[:id]
-    @driver = Driver.find(id)
+    @driver = Driver.find_by(id: params[:id])
+
+    @driver_trips = @driver.trips
+    return @driver_trips
   end
 
   def destroy

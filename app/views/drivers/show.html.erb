@@ -1,6 +1,19 @@
 <h2>Driver: <%= @driver.name %></h2>
 <h4>VIN: <%= @driver.vin %></h4>
 
+<table>
+  <!-- <%= @driver_trips %> -->
+  <% @driver_trips.each do |trip|%>
+    <%= trip.id %>
+    <%= trip.date %>
+    <%= trip.passenger.name %>
+    <%= trip.rating %>
+    <%= trip.cost %>
+  <% end%>
+</table>
+
+
+
 <ul>
   <li>
     <%= link_to "Edit", edit_driver_path %>
