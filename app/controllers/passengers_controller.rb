@@ -1,4 +1,4 @@
-class PassengerindexController < ApplicationController
+class PassengersController < ApplicationController
   def index
   end
 
