@@ -1,0 +1,2 @@
+module PassengerindexHelper
+end
