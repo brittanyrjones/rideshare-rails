@@ -10,19 +10,18 @@ class TripsController < ApplicationController
   end
 
   def update
-    @trip = Trip.find_by(id: params[:id])
-    if !@trip.nil?
-      if @trip.update(params[:title]) == nil
-      elsif @trip.update
-        redirect_to trip_path(@trip.id)
-      else
-        render :edit
-      end
-    else
-      redirect_to trips_path
-    end
-  end
+    @trip = Trip.find(params[:id])
 
+    @trip.driver_id = trip_params[:driver_id]
+    @trip.passenger_id = trip_params[:passenger_id]
+    @trip.date = trip_params[:date]
+    @trip.rating = trip_params[:rating]
+
+    if @trip.update trip_params
+      redirect_to trip_path
+    end
+
+  end
   def index
     @trips = Trip.all
   end
@@ -36,12 +35,14 @@ class TripsController < ApplicationController
     redirect_to trips_path
   end
 
+
   def create
-    @trip = Trip.new(trip_params)
-    if @trip.save
+    @trip = Trip.create trip_params
+
+    if @trip.id != nil
       redirect_to trips_path
     else
-      render :new
+      render "edit"
     end
   end
 

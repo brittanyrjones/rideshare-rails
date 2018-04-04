@@ -17,4 +17,7 @@
     <td><%= @trip.rating %></td>
   </tr>
 </table>
+
 <%= link_to "Back", trips_path %>
+<%= link_to "Edit", edit_trip_path %>
+<%= link_to "Delete", trip_path(@trip.id),method: :delete, data: {confirm: "Warning: Trip will be deleted. Click OK to confirm."} %>

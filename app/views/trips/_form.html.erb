@@ -1,0 +1,17 @@
+<%= form_for @trip do | f | %>
+
+<%= f.label :driver_id %>
+<%= f.select :driver_id, Driver.all.map { | driver | [driver.name, driver.id]} %>
+
+<%= f.label :passenger_id %>
+<%= f.select :passenger_id, Passenger.all.map { | passenger | [passenger.name, passenger.id]} %>
+
+<%= f.datetime_select :date %>
+
+<%= f.label :rating %>
+<%= f.text_field :rating %>
+
+
+<%= f.submit %>
+
+<% end %>
