@@ -1,10 +1,14 @@
 <h2>All Trips</h2>
 <ul>
   <% @trips.each do |trip| %>
-  <li>
-    <span class="name">
-      <%= link_to trip.id, trip_path(trip.id) %>
-    </span>
-  </li>
+    <li>
+      <span class="title">
+        <%= link_to trip.id, trip_path(trip.id) %>
+      </span>
+      <%= trip.date %>
+      <%= trip.driver.name %>
+      <%= trip.passenger.name %>
+      $<%= trip.cost.to_f/100 %>
+    </li>
   <% end %>
 </ul>

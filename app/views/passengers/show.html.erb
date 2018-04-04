@@ -6,6 +6,11 @@
   <li><%= @passenger.phone_num%></li>
   <!-- to add picture and car make and model -->
 </ul>
+<% sum = 0 %>
+<% @passenger_trips.each do |trip|%>
+  <% sum += trip.cost %>
+<% end %>
+<h5>Total Amount Paid: $<%= sum.to_f/100 %></h5>
 
 <table>
   <tr>
@@ -16,15 +21,15 @@
     <th>Trip Cost</th>
   </tr>
 
-
-  <% @passenger_trips.each do |trip|%>
   <tr>
-    <td><%= trip.id %></td>
-    <td><%= trip.date %></td>
-    <td><%= trip.driver.name %></td>
-    <td><%= trip.rating %></td>
-    <td><%= trip.cost %></td>
+    <% @passenger_trips.each do |trip|%>
+      <td><%= trip.id %></td>
+      <td><%= trip.date %></td>
+      <td><%= trip.driver.name %></td>
+      <td><%= trip.rating %></td>
+      <td>$<%= trip.cost.to_f/100 %></td>
     <% end%>
+  </tr>
   </table>
 
 

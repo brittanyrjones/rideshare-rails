@@ -6,6 +6,18 @@
   <!-- to add picture and car make and model -->
 </ul>
 
+<% sum = 0 %>
+<% rating = 0 %>
+<% total_trips = @driver_trips.count %>
+<% @driver_trips.each do |trip|%>
+  <% sum += trip.cost %>
+  <% rating += trip.rating %>
+<% end %>
+
+<!-- Change cost to float -->
+<h5>Total Cost: $<%= sum.to_f/100 %></h5>
+<h5>Average Rating: <%= (rating/total_trips).to_f %></h5>
+
 <table>
   <tr>
     <th>Trip ID</th>
