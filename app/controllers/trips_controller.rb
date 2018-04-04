@@ -1,7 +1,8 @@
 class TripsController < ApplicationController
   def show
-    id = params[:id]
-    @trip = Trip.find(id)
+    @trip = Trip.find(params[:id])
+
+
   end
 
   def edit
@@ -23,7 +24,7 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trip = Trip.all
+    @trips = Trip.all
   end
 
   def destroy

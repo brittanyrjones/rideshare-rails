@@ -2,8 +2,8 @@
 <ul>
   <% @trips.each do |trip| %>
   <li>
-    <span class="title">
-      <%= link_to trip.name, trip_path(trip.id) %>
+    <span class="name">
+      <%= link_to trip.id, trip_path(trip.id) %>
     </span>
   </li>
   <% end %>

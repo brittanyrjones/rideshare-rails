@@ -2,30 +2,39 @@
 <p>Things about passenger</p>
 
 <ul>
-	<li><%= @passenger.name %></li>
-	<li><%= @passenger.phone_num%></li>
+  <li><%= @passenger.name %></li>
+  <li><%= @passenger.phone_num%></li>
   <!-- to add picture and car make and model -->
 </ul>
 
 <table>
-  <!-- <%= @driver_trips %> -->
+  <tr>
+    <th>Trip ID</th>
+    <th>Trip Date</th>
+    <th>Trip Driver</th>
+    <th>Trip Rating</th>
+    <th>Trip Cost</th>
+  </tr>
+
+
   <% @passenger_trips.each do |trip|%>
-    <%= trip.id %>
-    <%= trip.date %>
-    <%= trip.driver.name %>
-    <%= trip.rating %>
-    <%= trip.cost %>
-  <% end%>
-</table>
+  <tr>
+    <td><%= trip.id %></td>
+    <td><%= trip.date %></td>
+    <td><%= trip.driver.name %></td>
+    <td><%= trip.rating %></td>
+    <td><%= trip.cost %></td>
+    <% end%>
+  </table>
 
 
 
-<ul>
-  <li>
-    <%= link_to "Edit", edit_passenger_path %>
-  </li>
-  <li>
-    <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
-    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete %>
-  </li>
-</ul>
+  <ul>
+    <li>
+      <%= link_to "Edit", edit_passenger_path %>
+    </li>
+    <li>
+      <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
+      <%= link_to "Delete", passenger_path(@passenger.id),method: :delete, data: {confirm: "Warning: Passenger will be deleted. Click OK to confirm."} %>
+    </li>
+  </ul>
