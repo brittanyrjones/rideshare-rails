@@ -22,7 +22,6 @@ class TripsController < ApplicationController
     end
   end
 
-
   def index
     @trip = Trip.all
   end
@@ -35,7 +34,6 @@ class TripsController < ApplicationController
     end
     redirect_to trips_path
   end
-
 
   def create
     @trip = Trip.new(trip_params)
@@ -51,7 +49,6 @@ class TripsController < ApplicationController
   end
 
   private
-
   def trip_params
     return params.require(:trip).permit(:id, :driver_id, :passenger_id, :date, :rating, :cost)
   end

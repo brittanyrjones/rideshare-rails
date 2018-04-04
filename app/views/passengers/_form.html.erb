@@ -1,0 +1,14 @@
+<%= form_title %>
+
+<%= form_for @passenger do |f| %>
+
+  <%= f.label :Name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :Phone_number %>
+  <%= f.text_area :phone_num %>
+
+
+<%= f.submit  %>
+
+<% end %>

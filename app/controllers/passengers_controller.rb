@@ -8,23 +8,17 @@ class PassengersController < ApplicationController
   end
 
   def create
-    @passengers = Passenger.new
-      if @passenger.save
-        redirect_to passenger_path
-      else
-        render :new
-      end
-    end
+    Passenger.create(passenger_params).save ? (redirect_to passengers_path) : (render :new)
+  end
 
   def edit
-    @passenger = Passenger.find_by(id)
+    @passenger = Passenger.find_by(id: params[:id])
   end
 
   def update
-    @passenger = Passgener.find_by(id: params[:id])
+    @passenger = Passenger.find_by(id: params[:id])
     if !@passenger.nil?
-      if @passenger.update(params[:title]) == nil
-        elsif @book.update
+      if @passenger.update(passenger_params)
         redirect_to passenger_path(@passenger.id)
       else
         render :edit
@@ -36,15 +30,24 @@ class PassengersController < ApplicationController
 
   def show
     id = params[:id]
-    @passenger = Passenger.find(id)
+    @passenger = Passenger.find_by(id: params[:id])
+
+    @passenger_trips = @passenger.trips
+    return @passenger_trips
   end
 
-  def delete
+  def destroy
     id = params[:id]
     @passenger = Passenger.find(id)
     if @passenger
       @passenger.destroy
     end
-    redirect_to passenger_path
+    redirect_to passengers_path
   end
+
+  private
+  def passenger_params
+    params.require(:passenger).permit( :name, :phone_num)
+  end
+
 end

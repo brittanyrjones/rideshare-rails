@@ -1,2 +1,31 @@
-<h1>Passengerindex#show</h1>
-<p>Find me in app/views/passengerindex/show.html.erb</p>
+<h1>Passenger Information</h1>
+<p>Things about passenger</p>
+
+<ul>
+	<li><%= @passenger.name %></li>
+	<li><%= @passenger.phone_num%></li>
+  <!-- to add picture and car make and model -->
+</ul>
+
+<table>
+  <!-- <%= @driver_trips %> -->
+  <% @passenger_trips.each do |trip|%>
+    <%= trip.id %>
+    <%= trip.date %>
+    <%= trip.driver.name %>
+    <%= trip.rating %>
+    <%= trip.cost %>
+  <% end%>
+</table>
+
+
+
+<ul>
+  <li>
+    <%= link_to "Edit", edit_passenger_path %>
+  </li>
+  <li>
+    <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
+    <%= link_to "Delete", passenger_path(@passenger.id), method: :delete %>
+  </li>
+</ul>
