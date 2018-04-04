@@ -10,7 +10,7 @@
 
   <header>
     <nav>
-      <ul>
+      <ul id="home">
         <li>
           <%= link_to "Home", root_path%>
         </li>
@@ -30,11 +30,23 @@
           <%= link_to "New Passenger", new_passenger_path %>
         </li>
       </ul>
-
     </nav>
   </header>
 
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+    <nav>
+      <ul>
+        <li>
+          <p>© 2018</p>
+        </li>
+        <li>
+          <p>Made By: Brittney Jones & Phoebe Manning</p>
+        </li>
+      </ul>
+    </nav>
+  </footer>
 </html>

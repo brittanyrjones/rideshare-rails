@@ -14,7 +14,8 @@
  *= require_self
  */
 
-main#homepage {
+/* HOMEPAGE */
+body#homepage {
   background-image: url(https://images.unsplash.com/photo-1501191830500-0513b5d594cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9ef6fe9bd6655d413181bc87e05e921a&auto=format&fit=crop&w=1990&q=80);
   background-size: cover;
   background-repeat: no-repeat;
@@ -28,9 +29,39 @@ h1 {
   font-size: 3em;
 }
 
-header nav ul {
+ul#home li a{
+  text-decoration: none;
+  color: white;
+}
+
+ul#home {
+  padding: 20px;
+}
+
+/* HEADER */
+header nav {
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+header nav ul, footer nav ul {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   list-style-type: none;
+  margin: 0;
+}
+
+/* FOOTER */
+footer nav {
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  margin: 0;
 }
