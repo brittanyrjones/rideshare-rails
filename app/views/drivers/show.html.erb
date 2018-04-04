@@ -1,25 +1,33 @@
 <h2>Driver: <%= @driver.name %></h2>
 <h4>VIN: <%= @driver.vin %></h4>
 
+<% sum = 0 %>
+<% rating = 0 %>
+<% total_trips = @driver_trips.count %>
+<% @driver_trips.each do |trip|%>
+  <% sum += trip.cost %>
+  <% rating += trip.rating %>
+<% end %>
+
+<!-- Change cost to float -->
+<h5>Total Cost: $<%= sum.to_f/100 %></h5>
+<h5>Average Rating: <%= (rating/total_trips).to_f %></h5>
+
 <table>
-  <!-- <%= @driver_trips %> -->
   <% @driver_trips.each do |trip|%>
     <%= trip.id %>
     <%= trip.date %>
     <%= trip.passenger.name %>
     <%= trip.rating %>
     <%= trip.cost %>
-  <% end%>
+  <% end %>
 </table>
-
-
 
 <ul>
   <li>
     <%= link_to "Edit", edit_driver_path %>
   </li>
   <li>
-    <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
     <%= link_to "Delete", driver_path(@driver.id), method: :delete %>
   </li>
 </ul>

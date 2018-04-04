@@ -37,6 +37,13 @@ class PassengersController < ApplicationController
   def show
     id = params[:id]
     @passenger = Passenger.find(id)
+
+    @passenger_trips = @passenger.trips
+
+    # @passenger_trips_cost = @passenger_trips.cost.sum
+    #
+    # return @passenger_trips_cost
+
   end
 
   def delete
@@ -46,5 +53,11 @@ class PassengersController < ApplicationController
       @passenger.destroy
     end
     redirect_to passenger_path
+  end
+
+  private
+
+  def passenger_params
+    return params.require(:passenger).permit( :name, :phone_num)
   end
 end

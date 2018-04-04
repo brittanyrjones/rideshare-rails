@@ -1,2 +1,28 @@
-<h1>Passengerindex#show</h1>
-<p>Find me in app/views/passengerindex/show.html.erb</p>
+<h2>Passenger: <%= @passenger.name %></h2>
+<h4>Phone Number: <%= @passenger.phone_num %></h4>
+
+<% sum = 0 %>
+<% @passenger_trips.each do |trip|%>
+  <% sum += trip.cost %>
+<% end %>
+<h5>Total Amount Paid: $<%= sum.to_f/100 %></h5>
+
+<table>
+ <% @passenger_trips.each do |trip|%>
+   <%= trip.id %>
+   <%= trip.date %>
+   <%= trip.driver.name %>
+   <%= trip.passenger.name %>
+   <%= trip.rating %>
+   <%= trip.cost %>
+ <% end%>
+</table>
+
+<ul>
+ <li>
+   <%= link_to "Edit", edit_passenger_path %>
+ </li>
+ <li>
+   <%= link_to "Delete", passenger_path(@passenger.id), method: :delete %>
+ </li>
+</ul>
