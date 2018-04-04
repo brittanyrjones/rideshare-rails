@@ -1,7 +1,7 @@
 # root 'trips#index'
 Rails.application.routes.draw do
 
-
+  root 'home#index'
   # get '/drivers', to: 'drivers#index', as: 'drivers'
   #
   # get '/drivers/new', to: 'drivers#new', as: 'new_driver'
