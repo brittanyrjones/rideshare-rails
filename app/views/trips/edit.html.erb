@@ -1,28 +1,44 @@
 <h1>Editing Trip #<%= @trip.id %></h1>
 
 <%= form_for @trip do |f| %>
-  <%= f.label :date %>
-  <%= f.date_field :date, "data-provide" => 'datepicker' %>
-  <br>
 
-  <%= f.label :driver %>
-  <%= f.select :driver_id, Driver.all.map { |driver| [driver.name, driver.id] } %>
-  <br>
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field :date, "data-provide" => 'datepicker' %>
+    <br>
+  </div>
 
-  <%= f.label :passenger %>:
-  <%= f.select :passenger_id, [[@trip.passenger.name, @trip.passenger.id]] %>
-  <br>
+  <div>
+    <%= f.label :driver %>
+    <%= f.select :driver_id, Driver.all.map { |driver| [driver.name, driver.id] } %>
+    <br>
+  </div>
 
-  <%= f.label :rating %>
-  <%= f.select :rating, (1..5).to_a %>
-  <br>
+  <div>
+    <%= f.label :passenger %>:
+    <%= f.select :passenger_id, [[@trip.passenger.name, @trip.passenger.id]] %>
+    <br>
+  </div>
 
-  <%= f.label :cost %>
-  <%= f.text_field :cost %>
-  <br>
+  <div>
+    <%= f.label :rating %>
+    <%= f.select :rating, (1..5).to_a %>
+    <br>
+  </div>
+
+  <div>
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+    <br>
+  </div>
+
+
   <% f.hidden_field :passenger_id %>
     <% f.hidden_field :driver_id %>
     <% f.hidden_field :date %>
-  <%= f.submit "Update" %>
+  <div>
+    <%= f.submit "Update" %>
+  </div>
+
 
 <% end %>
