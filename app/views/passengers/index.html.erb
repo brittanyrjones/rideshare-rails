@@ -1,7 +1,10 @@
 <h2>All Passengers</h2>
-<ul>
+<ul class="grid-container">
+  <li class="driver-grid-container">
+    <span class="col-name">Name</span>
+  </li>
   <% @passengers.each do |passenger| %>
-  <li>
+  <li class="driver-grid-container">
     <span class="title">
       <%= link_to passenger.name, passenger_path(passenger.id) %>
     </span>

@@ -65,7 +65,7 @@ footer nav {
   margin: 0;
 }
 
-/* DRIVER INDEX PAGE */
+/* DRIVER / PASSENGER INDEX PAGE */
 ul.grid-container{
   display: grid;
   grid-template-rows: 100%;
@@ -81,4 +81,9 @@ li.driver-grid-container {
 span.col-name {
   text-decoration: underline;
   font-size: 1.5em;
+}
+
+li.driver-grid-container span.title a {
+  text-decoration: none;
+  
 }
