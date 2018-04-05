@@ -1,17 +1,28 @@
+<!-- <h1><%= form_title %></h1> -->
+
 <%= form_for @trip do | f | %>
 
-<%= f.label :driver_id %>
-<%= f.select :driver_id, Driver.all.map { | driver | [driver.name, driver.id]} %>
+<div>
+  <%= f.label :driver_id %>
+  <%= f.select :driver_id, Driver.all.map { | driver | [driver.name, driver.id]} %>
+</div>
 
-<%= f.label :passenger_id %>
-<%= f.select :passenger_id, Passenger.all.map { | passenger | [passenger.name, passenger.id]} %>
+<div>
+  <%= f.label :passenger_id %>
+  <%= f.select :passenger_id, Passenger.all.map { | passenger | [passenger.name, passenger.id]} %>
+</div>
 
-<%= f.datetime_select :date %>
+<div>
+  <%= f.date_select :date %>
+</div>
 
-<%= f.label :rating %>
-<%= f.text_field :rating %>
+<div>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+</div>
 
-
-<%= f.submit %>
+<div>
+  <%= f.submit %>
+</div>
 
 <% end %>
