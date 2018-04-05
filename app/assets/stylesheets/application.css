@@ -131,15 +131,15 @@ ul.trips-grid-container {
   grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
 }
 
-/* DRIVER TRIPS */
-ul.driver-trips-grid-container {
+/* DRIVER & PASSENGER TRIPS */
+ul.specific-trips-grid-container {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 100%;
   grid-gap: 1em;
 }
 
-.driver-trips-grid-container .inner-grid-container {
+.specific-trips-grid-container .inner-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
