@@ -1,8 +1,9 @@
 <h2>All Drivers</h2>
-<ul class="grid-container">
+<ul class="driver-grid-container">
   <li class="inner-grid-container">
     <span class="col-name">Name</span>
     <span class="col-name">Average Rating</span>
+    <span class="col-name">Modify</span>
   </li>
   <% @drivers.each do |driver| %>
   <li class="inner-grid-container">
@@ -20,6 +21,10 @@
         <% rating = 0 %>
       <% end %>
       <%= rating %>
+    </span>
+    <span>
+      <%= link_to "Edit", edit_driver_path(driver.id) %>
+      <%= link_to "Delete", driver_path(driver.id),method: :delete, data: {confirm: "Warning: Driver will be deleted. Click OK to confirm."} %>
     </span>
   </li>
   <% end %>
