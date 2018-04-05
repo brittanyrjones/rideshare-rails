@@ -1,5 +1,14 @@
 <h1> Trip #<%= @trip.id %> </h1>
 
+<ul class="individual-info">
+  <li><%= link_to "Back", trips_path %></li>
+  <li class="edit-delete">
+    <%= link_to "Edit", edit_trip_path %>
+    <%= link_to "Delete", trip_path(@trip.id),method: :delete, data: {confirm: "Warning: Trip will be deleted. Click OK to confirm."} %>
+  </li>
+</ul>
+
+
 <ul class="specific-trips-grid-container">
   <li class="inner-grid-container">
     <span class="col-name">Trip ID</span>
@@ -22,7 +31,3 @@
   </li>
 
 </ul>
-
-<%= link_to "Back", trips_path %>
-<%= link_to "Edit", edit_trip_path %>
-<%= link_to "Delete", trip_path(@trip.id),method: :delete, data: {confirm: "Warning: Trip will be deleted. Click OK to confirm."} %>
