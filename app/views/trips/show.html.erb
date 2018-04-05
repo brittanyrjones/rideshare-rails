@@ -8,7 +8,6 @@
   </li>
 </ul>
 
-
 <ul class="specific-trips-grid-container">
   <li class="inner-grid-container">
     <span class="col-name">Trip ID</span>
@@ -18,7 +17,6 @@
     <span class="col-name">Passenger</span>
     <span class="col-name">Trip Cost</span>
   </li>
-
   <li class="inner-grid-container">
     <span class="title">
       <%= link_to @trip.id, trip_path(@trip.id) %>
@@ -29,5 +27,4 @@
     <span><%=link_to @trip.passenger.name, passenger_path(@trip.passenger.id)%></span>
     <span>$<%=@trip.cost.to_f/100%></span>
   </li>
-
 </ul>

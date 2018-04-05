@@ -159,3 +159,14 @@ li.edit-delete a {
 li.inner-grid-container span a {
   text-decoration: none;
 }
+
+/* ERRORS */
+ul.errors {
+  list-style-type: none;
+}
+
+/* FORMS */
+form.new_driver div{
+  padding: 1em;
+  text-align: center;
+}
