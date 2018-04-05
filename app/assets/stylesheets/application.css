@@ -39,14 +39,6 @@ h1 {
   font-size: 3em;
 }
 
-ul#home li a{
-  text-decoration: none;
-  color: white;
-}
-
-ul#home {
-  padding: 20px;
-}
 
 /* HEADER */
 header nav {
@@ -62,6 +54,23 @@ header nav ul, footer nav ul {
   justify-content: space-evenly;
   list-style-type: none;
   margin: 0;
+}
+
+ul.home li a{
+  text-decoration: none;
+  color: white;
+}
+
+ul.home {
+  padding: 20px;
+}
+
+li#home a {
+  color: yellow;
+}
+
+ul.home li.new a {
+  color: green;
 }
 
 /* FOOTER */

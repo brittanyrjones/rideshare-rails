@@ -11,9 +11,9 @@
   <main class="flex-container">
     <header>
       <nav>
-        <ul id="home">
-          <li>
-            <%= link_to "Home", root_path%>
+        <ul class="home">
+          <li id="home">
+            <%= link_to "HOME", root_path%>
           </li>
           <li>
             <%= link_to "Drivers", drivers_path %>
@@ -24,10 +24,10 @@
           <li>
             <%= link_to "Trips", trips_path %>
           </li>
-          <li>
+          <li class="new">
             <%= link_to "New Driver", new_driver_path %>
           </li>
-          <li>
+          <li class="new">
             <%= link_to "New Passenger", new_passenger_path %>
           </li>
         </ul>
