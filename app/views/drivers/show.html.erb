@@ -14,9 +14,14 @@
   <% rating += trip.rating %>
 <% end %>
 
-<!-- Change cost to float -->
+
 <h5>Total Cost: $<%= sum.to_f/100 %></h5>
-<h5>Average Rating: <%= (rating/total_trips).to_f %></h5>
+
+<% if total_trips != 0 %>
+  <h5>Average Rating: <%= (rating/total_trips).to_f %></h5>
+<% else %>
+  <h5>Average Rating: 0</h5>
+<% end %>
 
 <table>
   <tr>
