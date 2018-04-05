@@ -160,13 +160,26 @@ ul.individual-info {
   padding: 0;
   text-align: center;
 }
+ul.individual-info li {
+  margin-bottom: 5px;
+}
 
 li.edit-delete a {
   padding: 5px;
+  text-decoration: none;
 }
 
 li.inner-grid-container span a {
   text-decoration: none;
+}
+
+/* PASSENGER SHOW PAGE */
+a.request {
+  border: 1px black solid;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: green;
 }
 
 /* ERRORS */
