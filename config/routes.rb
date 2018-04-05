@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-
-=======
 # root 'trips#index'
-Rails.application.routes.draw do
-
-  root 'home#index'
   # get '/drivers', to: 'drivers#index', as: 'drivers'
   #
   # get '/drivers/new', to: 'drivers#new', as: 'new_driver'
@@ -43,13 +37,10 @@ Rails.application.routes.draw do
   # get '/passengers/:id', to: 'passengers#show', as: 'passenger'
   #
   # get '/passengers/:id/edit', to: 'passengers#edit', as: 'edit_passenger'
-  #
-  # patch '/passengers/:id', to: 'passengers#update'
-  #
-  # delete '/passengers/:id', to: 'passengers#destroy'
->>>>>>> 75940a96e4c28d30eedd19a57e925281a5a32955
+
 
 Rails.application.routes.draw do
+root 'home#index'
 
 resources :drivers
 resources :passengers do
