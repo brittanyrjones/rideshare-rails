@@ -1,9 +1,25 @@
 <h2>All Drivers</h2>
-<ul>
+<ul class="grid-container">
+  <li class="inner-grid-container">
+    <span class="col-name">Name</span>
+    <span class="col-name">Average Rating</span>
+  </li>
   <% @drivers.each do |driver| %>
-  <li>
+  <li class="inner-grid-container">
     <span class="title">
       <%= link_to driver.name, driver_path(driver.id) %>
+    </span>
+    <span>
+      <% rating = 0 %>
+      <% driver.trips.each do |trip|%>
+          <% rating += trip.rating %>
+      <% end %>
+      <% if rating != 0%>
+        <% rating = rating/driver.trips.count%>
+      <% else %>
+        <% rating = 0 %>
+      <% end %>
+      <%= rating %>
     </span>
   </li>
   <% end %>

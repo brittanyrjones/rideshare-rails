@@ -8,7 +8,8 @@ class PassengersController < ApplicationController
   end
 
   def create
-    Passenger.create(passenger_params).save ? (redirect_to passengers_path) : (render :new)
+    @passenger = Passenger.new(passenger_params)
+    @passenger.save ? (redirect_to passengers_path) : (render :new)
   end
 
   def edit

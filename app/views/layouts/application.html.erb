@@ -8,20 +8,33 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header>
-    <nav>
-      <ul>
-        <li>
-          <%= link_to "Drivers", drivers_path %>
-        </li>
-        <li>
-          <%= link_to "Passengers", passengers_path %>
-        </li>
-        <li>
-          <%= link_to "Trips", trips_path %>
-        </li>
-      </ul>
+  <main class="flex-container">
+    <header>
+      <nav>
+        <ul id="home">
+          <li>
+            <%= link_to "Home", root_path%>
+          </li>
+          <li>
+            <%= link_to "Drivers", drivers_path %>
+          </li>
+          <li>
+            <%= link_to "Passengers", passengers_path %>
+          </li>
+          <li>
+            <%= link_to "Trips", trips_path %>
+          </li>
+          <li>
+            <%= link_to "New Driver", new_driver_path %>
+          </li>
+          <li>
+            <%= link_to "New Passenger", new_passenger_path %>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
+<<<<<<< HEAD
       <ul>
         <li>
           <%= link_to "New Driver", new_driver_path %>
@@ -31,12 +44,23 @@
         </li>
 
       </ul>
+=======
+    <body>
+      <%= yield %>
+    </body>
+>>>>>>> 75940a96e4c28d30eedd19a57e925281a5a32955
 
-
-    </nav>
-  </header>
-
-  <body>
-    <%= yield %>
-  </body>
+    <footer>
+      <nav>
+        <ul>
+          <li>
+            <p>© 2018</p>
+          </li>
+          <li>
+            <p>Made By: Brittney Jones & Phoebe Manning</p>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </main>
 </html>

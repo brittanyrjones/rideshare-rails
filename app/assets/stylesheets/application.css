@@ -13,3 +13,90 @@
  *= require_tree .
  *= require_self
  */
+main.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* HOMEPAGE */
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+ul#home li a{
+  text-decoration: none;
+  color: white;
+}
+
+ul#home {
+  padding: 20px;
+}
+
+/* HEADER */
+header nav {
+  background-color: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+header nav ul, footer nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0;
+}
+
+/* FOOTER */
+footer nav {
+  background-color: black;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  margin: 0;
+}
+
+/* DRIVER / PASSENGER INDEX PAGE */
+ul.grid-container{
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: auto;
+  grid-gap: 1em;
+}
+
+li.inner-grid-container {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
+span.col-name {
+  text-decoration: underline;
+  font-size: 1.5em;
+}
+
+li.driver-grid-container span.title a {
+  text-decoration: none;
+
+}
+
+/* TRIPS INDEX PAGE */
+ul.trips-grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100%;
+  grid-gap: 1em;
+}
+
+.trips-grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+}
