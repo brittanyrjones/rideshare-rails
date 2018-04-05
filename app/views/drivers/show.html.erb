@@ -8,7 +8,7 @@
   <% rating += trip.rating %>
 <% end %>
 
-<ul>
+<ul class="individual-info">
   <li>Name: <%= @driver.name %></li>
   <li>Vin: <%= @driver.vin %></li>
   <!-- to add picture and car make and model -->
@@ -18,11 +18,8 @@
   <% else %>
     <li>Average Rating: 0</li>
   <% end %>
-  <li>
+  <li class="edit-delete">
     <%= link_to "Edit", edit_driver_path %>
-  </li>
-  <li>
-    <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
     <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Warning: Driver will be deleted. Click OK to confirm."} %>
   </li>
 </ul>

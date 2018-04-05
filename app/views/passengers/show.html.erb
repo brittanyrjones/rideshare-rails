@@ -5,18 +5,19 @@
   <% sum += trip.cost %>
 <% end %>
 
-<ul>
+<ul class="individual-info">
   <li>Name: <%= @passenger.name %></li>
   <li>Phone Number: <%= @passenger.phone_num%></li>
   <!-- to add picture and car make and model -->
   <li>Total Amount Paid: $<%= sum.to_f/100 %></li>
-  <li><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post %></li>
-  <li>
+  <li class="edit-delete">
     <%= link_to "Edit", edit_passenger_path %>
-  </li>
-  <li>
     <%= link_to "Delete", passenger_path(@passenger.id),method: :delete, data: {confirm: "Warning: Passenger will be deleted. Click OK to confirm."} %>
   </li>
+  <!-- <li>
+    <%= link_to "Delete", passenger_path(@passenger.id),method: :delete, data: {confirm: "Warning: Passenger will be deleted. Click OK to confirm."} %>
+  </li> -->
+  <li><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post %></li>
 </ul>
 
 <ul class="specific-trips-grid-container">

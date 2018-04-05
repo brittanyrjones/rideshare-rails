@@ -131,7 +131,7 @@ ul.trips-grid-container {
   grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
 }
 
-/* DRIVER & PASSENGER TRIPS */
+/* DRIVER & PASSENGER SHOW PAGES */
 ul.specific-trips-grid-container {
   display: grid;
   grid-template-columns: auto;
@@ -142,4 +142,16 @@ ul.specific-trips-grid-container {
 .specific-trips-grid-container .inner-grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+ul.individual-info {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+li.edit-delete a {
+  padding: 5px;
 }
