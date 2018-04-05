@@ -73,7 +73,7 @@ ul.grid-container{
   grid-gap: 1em;
 }
 
-li.driver-grid-container {
+li.inner-grid-container {
   display: grid;
   grid-template-columns: 20% auto;
 }
@@ -85,5 +85,18 @@ span.col-name {
 
 li.driver-grid-container span.title a {
   text-decoration: none;
-  
+
+}
+
+/* TRIPS INDEX PAGE */
+ul.trips-grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100%;
+  grid-gap: 1em;
+}
+
+.trips-grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
 }

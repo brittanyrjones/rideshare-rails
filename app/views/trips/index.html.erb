@@ -1,14 +1,21 @@
 <h2>All Trips</h2>
-<ul>
+<ul class="trips-grid-container">
+  <li class="inner-grid-container">
+    <span class="col-name">ID</span>
+    <span class="col-name">Date</span>
+    <span class="col-name">Driver Name</span>
+    <span class="col-name">Passenger Name</span>
+    <span class="col-name">Cost</span>
+  </li>
   <% @trips.each do |trip| %>
-    <li>
-      <span class="title">
-        <%= link_to trip.id, trip_path(trip.id) %>
-      </span>
-      <%= trip.date %>
-      <%= trip.driver.name %>
-      <%= trip.passenger.name %>
-      $<%= trip.cost.to_f/100 %>
-    </li>
+  <li class="inner-grid-container">
+    <span class="title">
+      <%= link_to trip.id, trip_path(trip.id) %>
+    </span>
+    <span><%= trip.date %></span>
+    <span><%= trip.driver.name %></span>
+    <span><%= trip.passenger.name %></span>
+    <span>$<%= trip.cost.to_f/100 %></span>
+  </li>
   <% end %>
 </ul>
