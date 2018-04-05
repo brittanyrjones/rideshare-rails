@@ -13,7 +13,7 @@
     <span class="title">
       <%= link_to trip.id, trip_path(trip.id) %>
     </span>
-    <span><%= trip.date %></span>
+    <span><%= trip.date.strftime('%b %d, %Y') %></span>
     <span><%= trip.driver.name %></span>
     <span><%= trip.passenger.name %></span>
     <span>$<%= trip.cost.to_f/100 %></span>
