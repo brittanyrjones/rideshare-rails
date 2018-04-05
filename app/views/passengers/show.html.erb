@@ -24,7 +24,7 @@
   <li class="inner-grid-container">
     <span class="col-name">Trip ID</span>
     <span class="col-name">Date</span>
-    <span class="col-name">Passenger</span>
+    <span class="col-name">Driver</span>
     <span class="col-name">Driver Rating</span>
     <span class="col-name">Trip Cost</span>
   </li>
@@ -34,7 +34,7 @@
       <%= link_to trip.id, trip_path(trip.id) %>
     </span>
     <span><%=trip.date.strftime('%b %d, %Y')%></span>
-    <span><%=trip.passenger.name%></span>
+    <span><%=link_to trip.driver.name, driver_path(trip.driver.id)%></span>
     <span><%=trip.rating%></span>
     <span>$<%=trip.cost.to_f/100%></span>
   </li>

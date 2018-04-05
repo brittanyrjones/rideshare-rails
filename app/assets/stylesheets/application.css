@@ -114,7 +114,7 @@ span.col-name {
   font-size: 1.5em;
 }
 
-li.driver-grid-container span.title a {
+li.passenger-grid-container span.title a {
   text-decoration: none;
 }
 
@@ -154,4 +154,8 @@ ul.individual-info {
 
 li.edit-delete a {
   padding: 5px;
+}
+
+li.inner-grid-container span a {
+  text-decoration: none;
 }
