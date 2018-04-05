@@ -64,3 +64,21 @@ footer nav {
   color: white;
   margin: 0;
 }
+
+/* DRIVER INDEX PAGE */
+ul.grid-container{
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: auto;
+  grid-gap: 1em;
+}
+
+li.driver-grid-container {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
+span.col-name {
+  text-decoration: underline;
+  font-size: 1.5em;
+}
