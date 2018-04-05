@@ -24,6 +24,10 @@ span.title a{
   text-decoration: none;
 }
 
+h2 {
+  padding-left: 40px;
+}
+
 /* HOMEPAGE */
 img {
   height: auto;
@@ -35,14 +39,6 @@ h1 {
   font-size: 3em;
 }
 
-ul#home li a{
-  text-decoration: none;
-  color: white;
-}
-
-ul#home {
-  padding: 20px;
-}
 
 /* HEADER */
 header nav {
@@ -58,6 +54,23 @@ header nav ul, footer nav ul {
   justify-content: space-evenly;
   list-style-type: none;
   margin: 0;
+}
+
+ul.home li a{
+  text-decoration: none;
+  color: white;
+}
+
+ul.home {
+  padding: 20px;
+}
+
+li#home a {
+  color: yellow;
+}
+
+ul.home li.new a {
+  color: green;
 }
 
 /* FOOTER */
@@ -110,7 +123,7 @@ span.col-name {
   font-size: 1.5em;
 }
 
-li.driver-grid-container span.title a {
+li.passenger-grid-container span.title a {
   text-decoration: none;
 }
 
@@ -125,4 +138,57 @@ ul.trips-grid-container {
 .trips-grid-container .inner-grid-container {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
+}
+
+/* DRIVER & PASSENGER SHOW PAGES */
+ul.specific-trips-grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100%;
+  grid-gap: 1em;
+}
+
+.specific-trips-grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+ul.individual-info {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+ul.individual-info li {
+  margin-bottom: 5px;
+}
+
+li.edit-delete a {
+  padding: 5px;
+  text-decoration: none;
+}
+
+li.inner-grid-container span a {
+  text-decoration: none;
+}
+
+/* PASSENGER SHOW PAGE */
+a.request {
+  border: 1px black solid;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: green;
+}
+
+/* ERRORS */
+ul.errors {
+  list-style-type: none;
+}
+
+/* FORMS */
+form div{
+  padding: 1em;
+  text-align: center;
 }

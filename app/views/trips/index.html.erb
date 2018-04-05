@@ -8,14 +8,15 @@
     <span class="col-name">Cost</span>
     <span class="col-name">Modify</span>
   </li>
+
   <% @trips.each do |trip| %>
   <li class="inner-grid-container">
     <span class="title">
       <%= link_to trip.id, trip_path(trip.id) %>
     </span>
-    <span><%= trip.date %></span>
-    <span><%= trip.driver.name %></span>
-    <span><%= trip.passenger.name %></span>
+    <span><%= trip.date.strftime('%b %d, %Y') %></span>
+    <span><%=link_to trip.driver.name, driver_path(trip.driver.id) %></span>
+    <span><%=link_to trip.passenger.name, passenger_path(trip.passenger.id) %></span>
     <span>$<%= trip.cost.to_f/100 %></span>
     <span>
       <%= link_to "Edit", edit_trip_path(trip.id) %>
