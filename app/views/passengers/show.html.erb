@@ -1,6 +1,7 @@
 <h1>Passenger Information</h1>
-<p>Things about passenger</p>
 
+<p>Things about passenger</p>
+<li><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post %><li>
 <ul>
   <li><%= @passenger.name %></li>
   <li><%= @passenger.phone_num%></li>
@@ -42,4 +43,5 @@
       <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
       <%= link_to "Delete", passenger_path(@passenger.id),method: :delete, data: {confirm: "Warning: Passenger will be deleted. Click OK to confirm."} %>
     </li>
+
   </ul>
