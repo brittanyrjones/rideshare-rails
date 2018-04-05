@@ -1,14 +1,19 @@
-<%= form_title %>
+<h1><%= form_title %></h1>
 
 <%= form_for @passenger do |f| %>
 
+<div>
   <%= f.label :Name %>
   <%= f.text_field :name %>
+</div>
 
+<div>
   <%= f.label :Phone_number %>
   <%= f.text_area :phone_num %>
+</div>
 
-
-<%= f.submit  %>
+<div>
+  <%= f.submit  %>
+</div>
 
 <% end %>

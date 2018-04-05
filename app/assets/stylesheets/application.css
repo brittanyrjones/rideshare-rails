@@ -166,7 +166,7 @@ ul.errors {
 }
 
 /* FORMS */
-form.new_driver div{
+form div{
   padding: 1em;
   text-align: center;
 }
