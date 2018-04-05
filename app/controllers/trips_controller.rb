@@ -37,20 +37,18 @@ class TripsController < ApplicationController
 
 
   def create
-    @trip = Trip.new
-    @trip.driver = Driver.all.sample
-    @trip.passenger = Passenger.find_by(id: params[:passenger_id])
-    @trip.rating = nil
-    @trip.date = Date.today
-    @trip.cost = 000
+    trip = Trip.new
+    trip.passenger_id = params[:passenger_id]
+    trip.driver_id = rand(1..(Driver.all.length))
+    trip.date = Time.now
 
-    if @trip.save
-      redirect_to trip_path
+    if trip.save
+      redirect_to passenger_trip_path(params[:passenger_id], trip.id)
     else
-      render "edit"
+      puts trip.errors.messages
     end
-
   end
+
 
   private
   def trip_params
