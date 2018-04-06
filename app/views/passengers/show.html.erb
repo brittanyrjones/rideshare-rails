@@ -1,7 +1,7 @@
 <h1>Passenger Information</h1>
 
 <p>Things about passenger</p>
-<li><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post %><li>
+<li><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :get %><li>
 <ul>
   <li><%= @passenger.name %></li>
   <li><%= @passenger.phone_num%></li>

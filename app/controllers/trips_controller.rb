@@ -38,18 +38,15 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new
-    @trip.driver = Driver.all.sample
-    @trip.passenger = Passenger.find_by(id: params[:passenger_id])
-    @trip.rating = nil
-    @trip.date = Date.today
-    @trip.cost = 000
-
+    @trip.date = DateTime.now
+    @trip.cost = rand(9999)
+    @trip.driver_id = Driver.all.where(available: true).sample
+    @trip.passenger_id = Passenger.find_by(id: params[:passenger_id]).id
     if @trip.save
-      redirect_to trip_path
+      redirect_to trip_path(@trip)
     else
-      render "edit"
+      raise ArgumentError.new("Error: Trip not created.")
     end
-
   end
 
   private

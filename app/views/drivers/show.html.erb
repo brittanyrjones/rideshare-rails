@@ -3,6 +3,7 @@
 <ul>
   <li><%= @driver.name %></li>
   <li><%= @driver.vin %></li>
+   <li>Status: <%= @driver.available? ? "Available" : "Unavailable" %> </li>
   <!-- to add picture and car make and model -->
 </ul>
 
