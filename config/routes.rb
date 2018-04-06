@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'drivers#index'
+  root 'home#index'
 
   resources :drivers
 
