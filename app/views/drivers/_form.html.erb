@@ -1,14 +1,19 @@
-<%= form_title %>
+<h1><%= form_title %></h1>
 
 <%= form_for @driver do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
 
-<%= f.label :vin %>
-<%= f.text_area :vin %>
+<div>
+  <%= f.label :vin %>
+  <%= f.text_area :vin %>
+</div>
 
-
-<%= f.submit  %>
+<div>
+  <%= f.submit  %>
+</div>
 
 <% end %>

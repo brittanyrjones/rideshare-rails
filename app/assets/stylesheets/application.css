@@ -13,3 +13,182 @@
  *= require_tree .
  *= require_self
  */
+
+/* OVERALL SITE */
+main.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+span.title a{
+  text-decoration: none;
+}
+
+h2 {
+  padding-left: 40px;
+}
+
+/* HOMEPAGE */
+img {
+  height: auto;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+
+/* HEADER */
+header nav {
+  background-color: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+header nav ul, footer nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0;
+}
+
+ul.home li a{
+  text-decoration: none;
+  color: white;
+}
+
+ul.home {
+  padding: 20px;
+}
+
+li#home a {
+  color: yellow;
+}
+
+ul.home li.new a {
+  color: green;
+}
+
+/* FOOTER */
+footer nav {
+  background-color: black;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  margin: 0;
+}
+
+/* DRIVER INDEX PAGE */
+ul.driver-grid-container{
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: auto;
+  grid-gap: 1em;
+}
+
+.driver-grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: 20% 20% 20%;
+}
+
+span.col-name {
+  text-decoration: underline;
+  font-size: 1.5em;
+}
+
+li.driver-grid-container span.title a {
+  text-decoration: none;
+}
+
+/* PASSENGER INDEX PAGE */
+ul.passenger-grid-container{
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: auto;
+  grid-gap: 1em;
+}
+
+.passenger-grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: 20% 20%;
+}
+
+span.col-name {
+  text-decoration: underline;
+  font-size: 1.5em;
+}
+
+li.passenger-grid-container span.title a {
+  text-decoration: none;
+}
+
+/* TRIPS INDEX PAGE */
+ul.trips-grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100%;
+  grid-gap: 1em;
+}
+
+.trips-grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
+}
+
+/* DRIVER & PASSENGER SHOW PAGES */
+ul.specific-trips-grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100%;
+  grid-gap: 1em;
+}
+
+.specific-trips-grid-container .inner-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+ul.individual-info {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+ul.individual-info li {
+  margin-bottom: 5px;
+}
+
+li.edit-delete a {
+  padding: 5px;
+  text-decoration: none;
+}
+
+li.inner-grid-container span a {
+  text-decoration: none;
+}
+
+/* PASSENGER SHOW PAGE */
+a.request {
+  border: 1px black solid;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 3px;
+  background-color: green;
+}
+
+/* ERRORS */
+ul.errors {
+  list-style-type: none;
+}
+
+/* FORMS */
+form div{
+  padding: 1em;
+  text-align: center;
+}

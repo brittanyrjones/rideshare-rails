@@ -1,40 +1,47 @@
-<h1>Driver Info</h1>
+<h1>Driver Information</h1>
 
-<ul>
-  <li><%= @driver.name %></li>
-  <li><%= @driver.vin %></li>
-   <li>Status: <%= @driver.available? ? "Available" : "Unavailable" %> </li>
+<% sum = 0 %>
+<% rating = 0 %>
+<% total_trips = @driver_trips.count %>
+<% @driver_trips.each do |trip|%>
+  <% sum += trip.cost %>
+  <% rating += trip.rating %>
+<% end %>
+
+<ul class="individual-info">
+  <li>Name: <%= @driver.name %></li>
+  <li>Vin: <%= @driver.vin %></li>
+  <li>Status: <%= @driver.available? ? "Available" : "Unavailable" %> </li>
   <!-- to add picture and car make and model -->
+  <li>Total Cost: $<%= sum.to_f/100 %></li>
+  <% if total_trips != 0 %>
+    <li>Average Rating: <%= (rating/total_trips).to_f %></li>
+  <% else %>
+    <li>Average Rating: 0</li>
+  <% end %>
+  <li class="edit-delete">
+    <%= link_to "Edit", edit_driver_path %>
+    <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Warning: Driver will be deleted. Click OK to confirm."} %>
+  </li>
 </ul>
 
-<table>
-  <tr>
-    <th>Trip ID</th>
-    <th>Date</th>
-    <th>Passenger</th>
-    <th>Driver Rating</th>
-    <th>Trip Cost</th>
-  </tr>
-
+<ul class="specific-trips-grid-container">
+  <li class="inner-grid-container">
+    <span class="col-name">Trip ID</span>
+    <span class="col-name">Date</span>
+    <span class="col-name">Passenger</span>
+    <span class="col-name">Driver Rating</span>
+    <span class="col-name">Trip Cost</span>
+  </li>
   <% @driver_trips.each do |trip|%>
-
-  <tr>
-    <td><%= trip.id %><td>
-      <td><%= trip.date %><td>
-        <td><%= trip.passenger.name %><td>
-          <td><%= trip.rating %><td>
-            <td><%= trip.cost %><td>
-              <% end%>
-            </table>
-
-
-
-            <ul>
-              <li>
-                <%= link_to "Edit", edit_driver_path %>
-              </li>
-              <li>
-                <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
-                <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Warning: Driver will be deleted. Click OK to confirm."} %>
-              </li>
-            </ul>
+  <li class="inner-grid-container">
+    <span class="title">
+      <%= link_to trip.id, trip_path(trip.id) %>
+    </span>
+    <span><%=trip.date.strftime('%b %d, %Y')%></span>
+    <span><%=link_to trip.passenger.name, passenger_path(trip.passenger.id)%></span>
+    <span><%=trip.rating%></span>
+    <span>$<%=trip.cost.to_f/100%></span>
+  </li>
+  <% end %>
+</ul>

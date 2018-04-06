@@ -1,42 +1,41 @@
 <h1>Passenger Information</h1>
 
-<p>Things about passenger</p>
 <li><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :get %><li>
-<ul>
-  <li><%= @passenger.name %></li>
-  <li><%= @passenger.phone_num%></li>
+
+<% sum = 0 %>
+<% @passenger_trips.each do |trip|%>
+  <% sum += trip.cost %>
+<% end %>
+
+<ul class="individual-info">
+  <li>Name: <%= @passenger.name %></li>
+  <li>Phone Number: <%= @passenger.phone_num%></li>
   <!-- to add picture and car make and model -->
+  <li>Total Amount Paid: $<%= sum.to_f/100 %></li>
+  <li class="edit-delete">
+    <%= link_to "Edit", edit_passenger_path %>
+    <%= link_to "Delete", passenger_path(@passenger.id),method: :delete, data: {confirm: "Warning: Passenger will be deleted. Click OK to confirm."} %>
+  </li>
+  <li><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :post, :class => "request" %></li>
 </ul>
 
-<table>
-  <tr>
-    <th>Trip ID</th>
-    <th>Trip Date</th>
-    <th>Trip Driver</th>
-    <th>Trip Rating</th>
-    <th>Trip Cost</th>
-  </tr>
-
-
+<ul class="specific-trips-grid-container">
+  <li class="inner-grid-container">
+    <span class="col-name">Trip ID</span>
+    <span class="col-name">Date</span>
+    <span class="col-name">Driver</span>
+    <span class="col-name">Driver Rating</span>
+    <span class="col-name">Trip Cost</span>
+  </li>
   <% @passenger_trips.each do |trip|%>
-  <tr>
-    <td><%= trip.id %></td>
-    <td><%= trip.date %></td>
-    <td><%= trip.driver.name %></td>
-    <td><%= trip.rating %></td>
-    <td><%= trip.cost %></td>
-    <% end%>
-  </table>
-
-
-
-  <ul>
-    <li>
-      <%= link_to "Edit", edit_passenger_path %>
-    </li>
-    <li>
-      <!-- Goes to the book path and changes the verb from GET to DELETE. The path is the same for SHOW and delete -->
-      <%= link_to "Delete", passenger_path(@passenger.id),method: :delete, data: {confirm: "Warning: Passenger will be deleted. Click OK to confirm."} %>
-    </li>
-
-  </ul>
+  <li class="inner-grid-container">
+    <span class="title">
+      <%= link_to trip.id, trip_path(trip.id) %>
+    </span>
+    <span><%=trip.date.strftime('%b %d, %Y')%></span>
+    <span><%=link_to trip.driver.name, driver_path(trip.driver.id)%></span>
+    <span><%=trip.rating%></span>
+    <span>$<%=trip.cost.to_f/100%></span>
+  </li>
+  <% end %>
+</ul>

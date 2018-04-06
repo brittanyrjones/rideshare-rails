@@ -8,7 +8,8 @@ class PassengersController < ApplicationController
   end
 
   def create
-    Passenger.create(passenger_params).save ? (redirect_to passengers_path) : (render :new)
+    @passenger = Passenger.new(passenger_params)
+    @passenger.save ? (redirect_to passengers_path) : (render :new)
   end
 
   def edit
@@ -50,4 +51,9 @@ class PassengersController < ApplicationController
     params.require(:passenger).permit( :name, :phone_num)
   end
 
+  private
+
+  def passenger_params
+    return params.require(:passenger).permit( :name, :phone_num)
+  end
 end

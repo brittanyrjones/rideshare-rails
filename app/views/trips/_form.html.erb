@@ -1,17 +1,29 @@
-<%= form_for @trip do | f | %>
+<h1>Rate / Edit Trip</h1>
 
-<%= f.label :driver_id %>
-<%= f.select :driver_id, Driver.all.map { | driver | [driver.name, driver.id]} %>
+<%= form_for @trip, url: passenger_trips_path(@trip.passenger_id) do |f| %>
 
-<%= f.label :passenger_id %>
-<%= f.select :passenger_id, Passenger.all.map { | passenger | [passenger.name, passenger.id]} %>
+<div>
+  <%= f.label :driver_id, class: "trip" %>
+  <%= f.text_field :driver_id %>
+</div>
 
-<%= f.datetime_select :date %>
+<div>
+  <%= f.label :passenger_id %>
+  <%= f.text_field :passenger_id %>
+</div>
 
-<%= f.label :rating %>
-<%= f.text_field :rating %>
+<div>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+</div>
 
+<div>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+</div>
 
-<%= f.submit %>
+<div>
+  <%= f.submit action_name, method: :put %>
+</div>
 
 <% end %>
