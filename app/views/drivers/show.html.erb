@@ -11,6 +11,7 @@
 <ul class="individual-info">
   <li>Name: <%= @driver.name %></li>
   <li>Vin: <%= @driver.vin %></li>
+  <li>Status: <%= @driver.available? ? "Available" : "Unavailable" %> </li>
   <!-- to add picture and car make and model -->
   <li>Total Cost: $<%= sum.to_f/100 %></li>
   <% if total_trips != 0 %>

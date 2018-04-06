@@ -9,6 +9,7 @@ class DriversController < ApplicationController
 
   def create
     @driver = Driver.new(driver_params)
+    @driver.available = :true
     @driver.save ? (redirect_to drivers_path) : (render :new)
   end
 
@@ -48,7 +49,7 @@ class DriversController < ApplicationController
 
   private
   def driver_params
-    params.require(:driver).permit( :name, :vin)
+    params.require(:driver).permit( :name, :vin, :available)
   end
 
 end

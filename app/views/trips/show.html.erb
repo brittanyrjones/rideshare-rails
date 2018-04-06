@@ -23,7 +23,15 @@
     </span>
     <span><%=@trip.date.strftime('%b %d, %Y')%></span>
     <span><%=link_to @trip.driver.name, driver_path(@trip.driver.id)%></span>
-    <span><%=@trip.rating%></span>
+    <span><% if @trip.rating %>
+          <%= @trip.rating %>
+        <% else %>
+          <%= form_for @trip do |f| %>
+            <%= f.label :rating %>
+            <%= f.select :rating, (1..5).to_a, :include_blank => true %>
+            <%= f.submit "Update" %>
+          <% end %>
+        <% end %></span>
     <span><%=link_to @trip.passenger.name, passenger_path(@trip.passenger.id)%></span>
     <span>$<%=@trip.cost.to_f/100%></span>
   </li>

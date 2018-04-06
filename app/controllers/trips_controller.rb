@@ -1,8 +1,22 @@
 class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
+  end
 
+  def new
+    passenger = Passenger.find_by(id: params[:passenger_id])
 
+    driver = Driver.all.sample
+    cost = 999
+    date = Date.today
+    rating = nil
+
+    @trip = Trip.new(passenger: passenger, driver: driver, date: date, cost: cost, rating: rating)
+    if @trip.save
+      redirect_to passenger_path(@trip[:passenger_id])
+    else
+      render :new
+    end
   end
 
   def edit
@@ -12,14 +26,11 @@ class TripsController < ApplicationController
   def update
     @trip = Trip.find(params[:id])
 
-    @trip.driver_id = trip_params[:driver_id]
-    @trip.passenger_id = trip_params[:passenger_id]
-    @trip.date = trip_params[:date]
-    @trip.rating = trip_params[:rating]
-
     if @trip.update trip_params
       redirect_to trip_path
+    else render :edit
     end
+
 
   end
   def index
@@ -37,16 +48,13 @@ class TripsController < ApplicationController
 
 
   def create
-    trip = Trip.new
-    trip.passenger_id = params[:passenger_id]
-    trip.driver_id = rand(1..(Driver.all.length))
-    trip.date = Time.now
-
-    if trip.save
-      redirect_to passenger_trip_path(params[:passenger_id], trip.id)
-    else
-      puts trip.errors.messages
-    end
+    passenger = Passenger.find_by(id: params[:passenger_id])
+    driver = Driver.all.sample
+    cost = 999
+    date = Date.today
+    rating = nil
+    @trip = Trip.new(passenger: passenger, driver: driver, date: date, cost: cost, rating: rating)
+    @trip.save
   end
 
 
