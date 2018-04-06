@@ -1,21 +1,23 @@
 <h1>Editing Trip #<%= @trip.id %></h1>
 
 <%= form_for @trip do |f| %>
-  <%= f.label :date %>
-  <%= f.date_field :date, "data-provide" => 'datepicker' %>
-  <br>
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field :date, "data-provide" => 'datepicker' %>
+    <br>
+  </div>
 
-  <%= f.label :driver %>
-  <%= f.select :driver_id, Driver.all.map { |driver| [driver.name, driver.id] } %>
-  <br>
+  <div>
+    <%= f.label :driver %>
+    <%= f.select :driver_id, Driver.all.map { |driver| [driver.name, driver.id] } %>
+    <br>
+  </div>
 
-  <%= f.label :passenger %>:
-  <%= f.select :passenger_id, [[@trip.passenger.name, @trip.passenger.id]] %>
-  <br>
-
-  <%= f.label :rating %>
-  <%= f.select :rating, (1..5).to_a %>
-  <br>
+  <div>
+    <%= f.label :passenger %>:
+    <%= f.select :passenger_id, [[@trip.passenger.name, @trip.passenger.id]] %>
+    <br>
+  </div>
 
   <div>
     <%= f.label :rating %>
