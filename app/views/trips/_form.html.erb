@@ -1,29 +1,21 @@
-<h1>Rate / Edit Trip</h1>
+<h2 class="my-class"><%= page_title %></h2>
 
-<%= form_for @trip, url: passenger_trips_path(@trip.passenger_id) do |f| %>
+<% if @trips.errors.any? %>
+  <ul class="errors">
+    <% @passenger.errors.each do |field, message| %>
+      <li>
+        <strong><%= field.capitalize %>: </strong><%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
-<div>
-  <%= f.label :driver_id, class: "trip" %>
-  <%= f.text_field :driver_id %>
-</div>
+<%= form_for @passenger do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-<div>
-  <%= f.label :passenger_id %>
-  <%= f.text_field :passenger_id %>
-</div>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
 
-<div>
-  <%= f.label :date %>
-  <%= f.date_field :date %>
-</div>
-
-<div>
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
-</div>
-
-<div>
-  <%= f.submit action_name, method: :put %>
-</div>
-
+  <%= f.submit %>
 <% end %>

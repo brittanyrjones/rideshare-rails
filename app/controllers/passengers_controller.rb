@@ -32,7 +32,6 @@ class PassengersController < ApplicationController
   def show
     id = params[:id]
     @passenger = Passenger.find_by(id: params[:id])
-
     @passenger_trips = @passenger.trips
     return @passenger_trips
   end
@@ -46,11 +45,23 @@ class PassengersController < ApplicationController
     redirect_to passengers_path
   end
 
-  private
-  def passenger_params
-    params.require(:passenger).permit( :name, :phone_num)
-  end
+  def new_trip
+       @passenger = Passenger.find(params[:id])
+       puts @passenger.attributes
+       if new_trip_ok?
+           avail_drivers = Driver.all.map { |driver| driver unless driver.trips.any? { |trip| trip.rating.nil? } }
+           driver = avail_drivers.sample
+           trip = @rider.trips.create(driver_id: driver.id, cost: 0.0, date: Time.now)
+       end
+       redirect_to rider_path
+   end
 
+   def new_trip_ok?
+           @rider.trips.each do |trip|
+               return false if trip.rating.nil?
+           end
+           true
+       end
   private
 
   def passenger_params

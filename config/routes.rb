@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-root 'home#index'
 
-resources :drivers
-resources :passengers do
-  resources :trips, only: [:create]
-end
+  root 'drivers#index'
 
-resources :trips do
-end
+  resources :drivers
+
+  resources :passengers do
+    resources :trips, only: [:new ,:create]
+  end
+
+  resources :trips
+  #don't need index for trips!!
+
 
 end

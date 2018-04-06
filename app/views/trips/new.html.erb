@@ -1,1 +1,27 @@
-<%= render partial: "form", locals: { form_title: "Create a New TRIP" } %>
+<h2>New Trip for </h2>
+
+<% if @trip.errors.any? %>
+  <ul class="errors">
+    <% @trip.errors.each do |field, message| %>
+      <li>
+        <strong><%= field.capitalize %></strong> <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @trip do |f| %>
+<%= f.label :driver %>:
+<%= Driver.all.sample.name %><br/><br/>
+
+<%= f.label :date %>:
+<%= Date.today %><br/><br/>
+
+<%= f.label :rating %>:
+<%= f.select :rating, [[1], [2], [3], [4], [5]], {}, {class: "form-control"} %><br/><br/>
+
+<%= f.label :cost %>:
+<%= f.text_field :cost %><br/><br/>
+
+<%= f.submit %>
+<% end %>
