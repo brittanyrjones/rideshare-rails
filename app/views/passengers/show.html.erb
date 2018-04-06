@@ -1,7 +1,5 @@
 <h1>Passenger Information</h1>
 
-<li><%= link_to "Request Trip", passenger_trips_path(@passenger), method: :get %><li>
-
 <% sum = 0 %>
 <% @passenger_trips.each do |trip|%>
   <% sum += trip.cost %>
