@@ -13,9 +13,8 @@
     </span>
     <span>
       <% rating = 0 %>
-      <% if driver.rating == nil %>
+      <% next if driver.rating == nil %>
         <%= "no rating" %>
-      <% else %>
         <% driver.trips.each do |trip|%>
             <% rating += trip.rating %>
         <% end %>
@@ -32,5 +31,5 @@
       <%= link_to "Delete", driver_path(driver.id),method: :delete, data: {confirm: "Warning: Driver will be deleted. Click OK to confirm."} %>
     </span>
   </li>
-  <% end %>
+
 </ul>

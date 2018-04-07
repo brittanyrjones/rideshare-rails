@@ -48,13 +48,14 @@ class TripsController < ApplicationController
 
 
   def create
-    passenger = Passenger.find_by(id: params[:passenger_id])
-    driver = Driver.all.sample
-    cost = 999
-    date = Date.today
-    rating = nil
-    @trip = Trip.new(passenger: passenger, driver: driver, date: date, cost: cost, rating: rating)
-    @trip.save
+    begin
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trip = Trip.request(passenger)
+      @trip.save
+    rescue
+      flash[:error] = "Error! Please rate last trip."
+    end
+  redirect_to passenger_path(passenger)
   end
 
 
