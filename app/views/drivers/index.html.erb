@@ -5,7 +5,7 @@
     <span class="col-name">Average Rating</span>
     <span class="col-name">Modify</span>
   </li>
-  
+
   <% @drivers.each do |driver| %>
   <li class="inner-grid-container">
     <span class="title">
@@ -13,15 +13,19 @@
     </span>
     <span>
       <% rating = 0 %>
-      <% driver.trips.each do |trip|%>
-          <% rating += trip.rating %>
-      <% end %>
-      <% if rating != 0%>
-        <% rating = rating/driver.trips.count%>
+      <% if driver.rating == nil %>
+        <%= "no rating" %>
       <% else %>
-        <% rating = 0 %>
+        <% driver.trips.each do |trip|%>
+            <% rating += trip.rating %>
+        <% end %>
+        <% if rating != 0%>
+          <% rating = rating/driver.trips.count%>
+        <% else %>
+          <% rating = 0 %>
+        <% end %>
+        <%= rating %>
       <% end %>
-      <%= rating %>
     </span>
     <span>
       <%= link_to "Edit", edit_driver_path(driver.id) %>

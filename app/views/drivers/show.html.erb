@@ -5,8 +5,10 @@
 <% total_trips = @driver_trips.count %>
 <% @driver_trips.each do |trip|%>
   <% sum += trip.cost %>
+  <% next if trip.rating == nil %>
   <% rating += trip.rating %>
 <% end %>
+
 
 <ul class="individual-info">
   <li>Name: <%= @driver.name %></li>
@@ -24,6 +26,8 @@
     <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Warning: Driver will be deleted. Click OK to confirm."} %>
   </li>
 </ul>
+
+
 
 <ul class="specific-trips-grid-container">
   <li class="inner-grid-container">
